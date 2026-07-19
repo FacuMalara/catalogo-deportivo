@@ -1,65 +1,81 @@
-import Image from "next/image";
+import { Suspense } from "react";
+import { Chip } from "@heroui/react";
+import { CatalogFilters } from "@/components/CatalogFilters";
+import { ProductCard } from "@/components/ProductCard";
+import { ProductGrid } from "@/components/ProductGrid";
+import { prisma } from "@/lib/prisma";
 
-export default function Home() {
+type HomeProps = {
+  searchParams: Promise<{ categoria?: string }>;
+};
+
+export default async function Home({ searchParams }: HomeProps) {
+  const { categoria } = await searchParams;
+
+  const [categories, products, featuredProducts] = await Promise.all([
+    prisma.category.findMany({ orderBy: { name: "asc" } }),
+    prisma.product.findMany({
+      where: categoria
+        ? { category: { slug: categoria } }
+        : undefined,
+      include: { category: true },
+      orderBy: { name: "asc" },
+    }),
+    categoria
+      ? Promise.resolve([])
+      : prisma.product.findMany({
+          where: { featured: true },
+          include: { category: true },
+          take: 4,
+        }),
+  ]);
+
+  const activeCategory = categories.find((cat) => cat.slug === categoria);
+
   return (
-    <div className="flex flex-col flex-1 items-center justify-center bg-zinc-50 font-sans dark:bg-black">
-      <main className="flex flex-1 w-full max-w-3xl flex-col items-center justify-between py-32 px-16 bg-white dark:bg-black sm:items-start">
-        <Image
-          className="dark:invert"
-          src="/next.svg"
-          alt="Next.js logo"
-          width={100}
-          height={20}
-          priority
-        />
-        <div className="flex flex-col items-center gap-6 text-center sm:items-start sm:text-left">
-          <h1 className="max-w-xs text-3xl font-semibold leading-10 tracking-tight text-black dark:text-zinc-50">
-            To get started, edit the page.tsx file.
-          </h1>
-          <p className="max-w-md text-lg leading-8 text-zinc-600 dark:text-zinc-400">
-            Looking for a starting point or more instructions? Head over to{" "}
-            <a
-              href="https://vercel.com/templates?framework=next.js&utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Templates
-            </a>{" "}
-            or the{" "}
-            <a
-              href="https://nextjs.org/learn?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-              className="font-medium text-zinc-950 dark:text-zinc-50"
-            >
-              Learning
-            </a>{" "}
-            center.
-          </p>
-        </div>
-        <div className="flex flex-col gap-4 text-base font-medium sm:flex-row">
-          <a
-            className="flex h-12 w-full items-center justify-center gap-2 rounded-full bg-foreground px-5 text-background transition-colors hover:bg-[#383838] dark:hover:bg-[#ccc] md:w-[158px]"
-            href="https://vercel.com/new?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            <Image
-              className="dark:invert"
-              src="/vercel.svg"
-              alt="Vercel logomark"
-              width={16}
-              height={16}
-            />
-            Deploy Now
-          </a>
-          <a
-            className="flex h-12 w-full items-center justify-center rounded-full border border-solid border-black/[.08] px-5 transition-colors hover:border-transparent hover:bg-black/[.04] dark:border-white/[.145] dark:hover:bg-[#1a1a1a] md:w-[158px]"
-            href="https://nextjs.org/docs?utm_source=create-next-app&utm_medium=appdir-template-tw&utm_campaign=create-next-app"
-            target="_blank"
-            rel="noopener noreferrer"
-          >
-            Documentation
-          </a>
-        </div>
-      </main>
+    <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
+      <section className="mb-10">
+        <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+          Catálogo deportivo
+        </h1>
+        <p className="mt-2 max-w-2xl text-slate-600">
+          Encontrá equipamiento para fútbol, running, fitness, natación, básquet
+          y tenis.
+        </p>
+      </section>
+
+      <section className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
+        <Suspense fallback={<div className="h-10 w-48 animate-pulse rounded-lg bg-slate-200" />}>
+          <CatalogFilters categories={categories} />
+        </Suspense>
+        {activeCategory && (
+          <Chip color="accent" variant="soft">
+            Filtrando: {activeCategory.name}
+          </Chip>
+        )}
+      </section>
+
+      {!categoria && featuredProducts.length > 0 && (
+        <section className="mb-12">
+          <h2 className="mb-4 text-xl font-semibold text-slate-900">
+            Destacados
+          </h2>
+          <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
+            {featuredProducts.map((product) => (
+              <ProductCard key={product.id} product={product} />
+            ))}
+          </div>
+        </section>
+      )}
+
+      <section>
+        <h2 className="mb-4 text-xl font-semibold text-slate-900">
+          {activeCategory
+            ? `Productos de ${activeCategory.name}`
+            : "Todos los productos"}
+        </h2>
+        <ProductGrid products={products} />
+      </section>
     </div>
   );
 }

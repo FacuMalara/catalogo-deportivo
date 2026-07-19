@@ -1,36 +1,103 @@
-This is a [Next.js](https://nextjs.org) project bootstrapped with [`create-next-app`](https://nextjs.org/docs/app/api-reference/cli/create-next-app).
+# SportCatalog — Catálogo Deportivo
 
-## Getting Started
+Catálogo público de productos deportivos construido con Next.js, Prisma, MongoDB Atlas, Tailwind CSS v4 y HeroUI.
 
-First, run the development server:
+## Stack
+
+- **Next.js 16** (App Router)
+- **Prisma 6** + **MongoDB Atlas**
+- **Tailwind CSS v4** + **HeroUI v3**
+- **Vercel** (deploy)
+
+## Requisitos
+
+- Node.js 20+
+- Cuenta en [MongoDB Atlas](https://www.mongodb.com/cloud/atlas)
+- Cuenta en [Vercel](https://vercel.com) (para deploy)
+
+## Configuración local
+
+1. Cloná el repo e instalá dependencias:
+
+```bash
+npm install
+```
+
+2. Copiá `.env.example` a `.env.local` y completá tu connection string:
+
+```bash
+cp .env.example .env.local
+```
+
+También creá un archivo `.env` con la misma `DATABASE_URL` (Prisma CLI lo usa para `db push` y `seed`).
+
+3. En MongoDB Atlas verificá:
+
+- **Database Access**: usuario con contraseña creado
+- **Network Access**: IP Access List con `0.0.0.0/0`
+
+4. Sincronizá el schema y cargá los datos de ejemplo:
+
+```bash
+npm run db:push
+npm run db:seed
+```
+
+5. Iniciá el servidor de desarrollo:
 
 ```bash
 npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+Abrí [http://localhost:3000](http://localhost:3000).
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+## Deploy en Vercel
 
-This project uses [`next/font`](https://nextjs.org/docs/app/building-your-application/optimizing/fonts) to automatically optimize and load [Geist](https://vercel.com/font), a new font family for Vercel.
+1. Subí el proyecto a GitHub.
+2. Importá el repo en [Vercel](https://vercel.com/new).
+3. Agregá la variable de entorno `DATABASE_URL` (Production + Preview).
+4. Deploy (build command: `prisma generate && next build`).
+5. Post-deploy, desde tu máquina con la `DATABASE_URL` de producción:
 
-## Learn More
+```bash
+npm run db:push
+npm run db:seed
+```
 
-To learn more about Next.js, take a look at the following resources:
+## Scripts
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+| Comando | Descripción |
+|---------|-------------|
+| `npm run dev` | Servidor de desarrollo |
+| `npm run build` | Build de producción |
+| `npm run db:push` | Sincroniza schema con MongoDB |
+| `npm run db:seed` | Carga categorías y productos de ejemplo |
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js) - your feedback and contributions are welcome!
+## Estructura
 
-## Deploy on Vercel
+```
+src/
+├── app/
+│   ├── page.tsx                 # Catálogo principal
+│   └── productos/[slug]/page.tsx # Detalle de producto
+├── components/
+│   ├── Navbar.tsx
+│   ├── ProductCard.tsx
+│   ├── ProductGrid.tsx
+│   └── CatalogFilters.tsx
+└── lib/
+    ├── prisma.ts
+    └── format.ts
+```
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+## Solución de problemas
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/app/building-your-application/deploying) for more details.
+### `bad auth : authentication failed`
+
+- Verificá usuario y contraseña en **Database Access** de Atlas.
+- Si cambiaste la contraseña, actualizá `.env` y `.env.local`.
+- Si la contraseña tiene caracteres especiales (`@`, `#`, `%`), encodealos en la URL (`@` → `%40`).
+
+### Prisma Client no generado en Vercel
+
+El `postinstall` y el script `build` ya ejecutan `prisma generate`.
