@@ -5,6 +5,8 @@ import { ProductCard } from "@/components/ProductCard";
 import { ProductGrid } from "@/components/ProductGrid";
 import { prisma } from "@/lib/prisma";
 
+export const dynamic = "force-dynamic";
+
 type HomeProps = {
   searchParams: Promise<{ categoria?: string }>;
 };

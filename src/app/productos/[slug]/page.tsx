@@ -11,6 +11,8 @@ import { ProductImage } from "@/components/ProductImage";
 import { prisma } from "@/lib/prisma";
 import { formatPrice } from "@/lib/format";
 
+export const dynamic = "force-dynamic";
+
 type ProductPageProps = {
   params: Promise<{ slug: string }>;
 };
