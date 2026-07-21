@@ -66,7 +66,6 @@ export default async function ProductPage({ params }: ProductPageProps) {
             src={product.imageUrl}
             alt={product.name}
             priority
-            sizes="(max-width: 1024px) 100vw, 50vw"
           />
         </div>
 

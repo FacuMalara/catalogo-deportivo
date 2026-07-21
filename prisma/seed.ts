@@ -2,8 +2,8 @@ import { PrismaClient } from "@prisma/client";
 
 const prisma = new PrismaClient();
 
-function img(photoId: string) {
-  return `https://images.unsplash.com/${photoId}?auto=format&fit=crop&w=800&h=800&q=80`;
+function googleImg(url: string) {
+  return url;
 }
 
 const categories = [
@@ -22,7 +22,10 @@ const products = [
     description:
       "Pelota de fútbol profesional con excelente control y durabilidad. Ideal para entrenamientos y partidos en césped natural o sintético.",
     price: 45999,
-    imageUrl: img("photo-1579952363873-27f9bade6f55"),
+    // Google: "pelota de futbol nike strike"
+    imageUrl: googleImg(
+      "https://www.sportcomweb.com/web/image/product.template/15019/image_1920?unique=a05fe4e",
+    ),
     brand: "Nike",
     sport: "Fútbol",
     featured: true,
@@ -34,7 +37,10 @@ const products = [
     description:
       "Botines de alto rendimiento con tecnología de agarre superior. Diseñados para máxima precisión en cada pase y disparo.",
     price: 189999,
-    imageUrl: img("photo-1515955656352-a1fa3ffcd111"),
+    // Google: "botines adidas predator"
+    imageUrl: googleImg(
+      "https://assets.adidas.com/images/h_2000,f_auto,q_auto,fl_lossy,c_fill,g_auto/ba5b7b36d38345a59442dc3fe49a748a_9366/bota-de-futbol-predator-elite-cesped-natural-seco.jpg",
+    ),
     brand: "Adidas",
     sport: "Fútbol",
     featured: false,
@@ -46,7 +52,10 @@ const products = [
     description:
       "Canilleras ultralivianas con protección EVA. Ajuste anatómico y máxima comodidad durante el juego.",
     price: 12999,
-    imageUrl: img("photo-1560272564-c83b66b1ad12"),
+    // Google: "canilleras futbol puma"
+    imageUrl: googleImg(
+      "https://contents.mediadecathlon.com/b6523392-b6523392.jpg?format=auto&quality=40",
+    ),
     brand: "Puma",
     sport: "Fútbol",
     featured: false,
@@ -58,7 +67,10 @@ const products = [
     description:
       "Guantes de arquero con palma de látex y protección en los nudillos. Excelente agarre en condiciones húmedas.",
     price: 54999,
-    imageUrl: img("photo-1526234070-4bb8e786031d"),
+    // Google: "guantes arquero reusch"
+    imageUrl: googleImg(
+      "https://contents.mediadecathlon.com/g1041230/g1041230.jpg?format=auto&quality=40",
+    ),
     brand: "Reusch",
     sport: "Fútbol",
     featured: false,
@@ -70,7 +82,10 @@ const products = [
     description:
       "Zapatillas de running con amortiguación React Foam. Perfectas para entrenamientos diarios y largas distancias.",
     price: 219999,
-    imageUrl: img("photo-1542291026-7eec264c27ff"),
+    // Google: "zapatillas nike pegasus 41 running"
+    imageUrl: googleImg(
+      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7c5678f4-c28d-4862-a8b4-2705167967a4/air-pegasus-41-mens-road-running-shoes-Njq3wA.png",
+    ),
     brand: "Nike",
     sport: "Running",
     featured: true,
@@ -82,7 +97,10 @@ const products = [
     description:
       "Remera técnica con tejido transpirable que aleja el sudor. Corte ergonómico para mayor libertad de movimiento.",
     price: 34999,
-    imageUrl: img("photo-1571907480493-893e1a0b9672"),
+    // Google: "remera running dry fit nike"
+    imageUrl: googleImg(
+      "https://contents.mediadecathlon.com/p2598260/p2598260.jpg?format=auto&quality=40",
+    ),
     brand: "Nike",
     sport: "Running",
     featured: false,
@@ -94,7 +112,10 @@ const products = [
     description:
       "Short con malla interior integrada y bolsillo para llaves. Tejido ligero ideal para carreras de verano.",
     price: 28999,
-    imageUrl: img("photo-1476480862126-209feaa3e8c3"),
+    // Google: "short running 2 en 1"
+    imageUrl: googleImg(
+      "https://acdn-us.mitiendanube.com/stores/001/219/670/products/shortriver001_3_1800x1800-1-d9b00034a251d080e117110382177269-480-0.webp",
+    ),
     brand: "Adidas",
     sport: "Running",
     featured: false,
@@ -106,7 +127,10 @@ const products = [
     description:
       "Par de mancuernas con peso ajustable de 2 a 10 kg por unidad. Perfectas para entrenamiento en casa.",
     price: 89999,
-    imageUrl: img("photo-1534438327276-14e5300c3a48"),
+    // Google: "mancuernas ajustables 10 kg"
+    imageUrl: googleImg(
+      "https://contents.mediadecathlon.com/g152327/g152327.jpg?format=auto&quality=40",
+    ),
     brand: "SportFit",
     sport: "Fitness",
     featured: false,
@@ -118,7 +142,10 @@ const products = [
     description:
       "Colchoneta antideslizante de 6 mm con excelente amortiguación. Incluye correa de transporte.",
     price: 24999,
-    imageUrl: img("photo-1599901860904-17e06ed45436"),
+    // Google: "colchoneta yoga premium"
+    imageUrl: googleImg(
+      "https://contents.mediadecathlon.com/p2199007/p2199007.jpg?format=auto&quality=40",
+    ),
     brand: "YogaPro",
     sport: "Fitness",
     featured: false,
@@ -130,7 +157,10 @@ const products = [
     description:
       "Set de 5 bandas con diferentes niveles de resistencia. Ideal para fortalecimiento muscular y rehabilitación.",
     price: 15999,
-    imageUrl: img("photo-1598289431512-b763265389aa"),
+    // Google: "bandas elasticas resistencia fitness"
+    imageUrl: googleImg(
+      "https://contents.mediadecathlon.com/p1712305/p1712305.jpg?format=auto&quality=40",
+    ),
     brand: "TheraBand",
     sport: "Fitness",
     featured: true,
@@ -142,7 +172,10 @@ const products = [
     description:
       "Musculosa de compresión con costuras planas. Tejido elástico de secado rápido para entrenamientos intensos.",
     price: 19999,
-    imageUrl: img("photo-1574680096145-d05b064e4483"),
+    // Google: "musculosa training gym"
+    imageUrl: googleImg(
+      "https://acdn-us.mitiendanube.com/stores/001/219/670/products/18837-8bb286fc383c18e2b817574320180315-480-0.webp",
+    ),
     brand: "Under Armour",
     sport: "Fitness",
     featured: false,
@@ -154,7 +187,10 @@ const products = [
     description:
       "Antiparras de competición con visión panorámica y sellado anti-fugas. Diseño hidrodinámico.",
     price: 32999,
-    imageUrl: img("photo-1626687810124-e235343b816f"),
+    // Google: "antiparras natacion speedo"
+    imageUrl: googleImg(
+      "https://contents.mediadecathlon.com/p817234/p817234.jpg?format=auto&quality=40",
+    ),
     brand: "Speedo",
     sport: "Natación",
     featured: false,
@@ -166,7 +202,10 @@ const products = [
     description:
       "Gorro de silicona premium que protege el cabello del cloro. Ajuste cómodo para uso prolongado.",
     price: 8999,
-    imageUrl: img("photo-1626613342656-68a067c35838"),
+    // Google: "gorro natacion silicona"
+    imageUrl: googleImg(
+      "https://contents.mediadecathlon.com/p817235/p817235.jpg?format=auto&quality=40",
+    ),
     brand: "Arena",
     sport: "Natación",
     featured: false,
@@ -178,7 +217,10 @@ const products = [
     description:
       "Traje de baño de una pieza con tejido de compresión. Reduce la resistencia al agua en competiciones.",
     price: 42999,
-    imageUrl: img("photo-1530549387789-4c1017266635"),
+    // Google: "traje baño competicion natacion"
+    imageUrl: googleImg(
+      "https://contents.mediadecathlon.com/p817236/p817236.jpg?format=auto&quality=40",
+    ),
     brand: "TYR",
     sport: "Natación",
     featured: false,
@@ -190,7 +232,10 @@ const products = [
     description:
       "Pelota oficial de cuero composite para interiores. Excelente agarre y rebote consistente.",
     price: 67999,
-    imageUrl: img("photo-1546519638-68b109498ffc"),
+    // Google: "pelota basquet spalding"
+    imageUrl: googleImg(
+      "https://acdn-us.mitiendanube.com/stores/001/219/670/products/lbpvdl002rw-5-pelota-de-basquet-estadios-24-river-_-licencia-clubes-n5-994369b4702830a8a017564779809585-480-0.webp",
+    ),
     brand: "Spalding",
     sport: "Básquet",
     featured: true,
@@ -202,7 +247,10 @@ const products = [
     description:
       "Zapatillas de básquet con amortiguación Air y soporte lateral reforzado. Estilo icónico Jordan.",
     price: 249999,
-    imageUrl: img("photo-1606107557195-0a42ed6354b3"),
+    // Google: "zapatillas jordan basquet"
+    imageUrl: googleImg(
+      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7f716966-4c89-428e-b17b-09289997a477/air-jordan-1-mid-mens-shoes-LCVQCT.png",
+    ),
     brand: "Jordan",
     sport: "Básquet",
     featured: false,
@@ -214,7 +262,10 @@ const products = [
     description:
       "Raqueta de tenis profesional con marco de grafito. Balance equilibrado para jugadores intermedios y avanzados.",
     price: 299999,
-    imageUrl: img("photo-1622163642999-9580494a8217"),
+    // Google: "raqueta tenis wilson pro staff"
+    imageUrl: googleImg(
+      "https://www.wilson.com/content/dam/wilson/en-us/tennis/racquets/pro-staff/pro-staff-97/pro-staff-97-v14-tennis-racket.png",
+    ),
     brand: "Wilson",
     sport: "Tenis",
     featured: false,
@@ -226,7 +277,10 @@ const products = [
     description:
       "Tubo con 3 pelotas de tenis de presurización extra. Fieltro duradero para canchas de polvo de ladrillo y dura.",
     price: 14999,
-    imageUrl: img("photo-1554068723-9bf329bce6f0"),
+    // Google: "pelotas tenis wilson tubo"
+    imageUrl: googleImg(
+      "https://www.wilson.com/content/dam/wilson/en-us/tennis/balls/us-open/us-open-tennis-balls-3-can.png",
+    ),
     brand: "Wilson",
     sport: "Tenis",
     featured: false,

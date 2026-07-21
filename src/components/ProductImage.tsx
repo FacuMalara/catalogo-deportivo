@@ -1,36 +1,32 @@
 "use client";
 
-import Image from "next/image";
 import { useState } from "react";
 
 const FALLBACK_IMAGE =
-  "https://images.unsplash.com/photo-1461896836934-ffe607ba8211?auto=format&fit=crop&w=800&h=800&q=80";
+  "https://www.gstatic.com/hostedimg/5e903ed9436e1391_large";
 
 type ProductImageProps = {
   src: string;
   alt: string;
   priority?: boolean;
   className?: string;
-  sizes?: string;
 };
 
 export function ProductImage({
   src,
   alt,
   priority = false,
-  className = "object-cover",
-  sizes = "(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 25vw",
+  className = "h-full w-full object-cover",
 }: ProductImageProps) {
   const [currentSrc, setCurrentSrc] = useState(src);
 
   return (
-    <Image
+    // eslint-disable-next-line @next/next/no-img-element
+    <img
       src={currentSrc}
       alt={alt}
-      fill
-      priority={priority}
-      className={className}
-      sizes={sizes}
+      loading={priority ? "eager" : "lazy"}
+      className={`${className} absolute inset-0 h-full w-full`}
       onError={() => {
         if (currentSrc !== FALLBACK_IMAGE) {
           setCurrentSrc(FALLBACK_IMAGE);

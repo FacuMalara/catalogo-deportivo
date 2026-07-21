@@ -1,16 +1,20 @@
 import { NextResponse } from "next/server";
 import { prisma } from "@/lib/prisma";
+import { requireAuth } from "@/lib/require-auth";
 
 export const dynamic = "force-dynamic";
 
 export async function GET() {
+  const { error } = await requireAuth();
+  if (error) return error;
+
   const hasDatabaseUrl = Boolean(process.env.DATABASE_URL);
 
   if (!hasDatabaseUrl) {
     return NextResponse.json(
       {
         ok: false,
-        error: "DATABASE_URL no está configurada en Vercel.",
+        error: "DATABASE_URL no está configurada.",
       },
       { status: 500 },
     );
@@ -24,9 +28,9 @@ export async function GET() {
       products: count,
       message: "Conexión a MongoDB correcta.",
     });
-  } catch (error) {
+  } catch (err) {
     const message =
-      error instanceof Error ? error.message : "Error desconocido de base de datos";
+      err instanceof Error ? err.message : "Error desconocido de base de datos";
 
     return NextResponse.json(
       {
