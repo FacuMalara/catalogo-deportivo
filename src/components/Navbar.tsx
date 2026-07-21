@@ -2,6 +2,7 @@ import Link from "next/link";
 import { auth, signOut } from "@/auth";
 import { Button } from "@heroui/react";
 import { ThemeToggle } from "@/components/ThemeToggle";
+import { CartButton } from "@/components/CartButton";
 
 export async function Navbar() {
   const session = await auth();
@@ -18,6 +19,7 @@ export async function Navbar() {
 
         <div className="flex items-center gap-2 sm:gap-3">
           <ThemeToggle />
+          <CartButton />
           {session?.user ? (
             <>
               <div className="hidden text-right sm:block">
@@ -29,7 +31,7 @@ export async function Navbar() {
               <form
                 action={async () => {
                   "use server";
-                  await signOut({ redirectTo: "/login" });
+                  await signOut({ redirectTo: "/" });
                 }}
               >
                 <Button type="submit" size="sm" variant="secondary">

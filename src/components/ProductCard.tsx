@@ -3,6 +3,7 @@ import { Card, Chip, Button } from "@heroui/react";
 import type { Category, Product } from "@prisma/client";
 import { formatPrice } from "@/lib/format";
 import { ProductImage } from "./ProductImage";
+import { ProductCardActions } from "./ProductCardActions";
 
 export type ProductWithCategory = Product & { category: Category };
 
@@ -28,15 +29,25 @@ export function ProductCard({ product }: { product: ProductWithCategory }) {
           {product.category.name}
         </Chip>
       </Card.Content>
-      <Card.Footer className="flex items-center justify-between gap-2">
+      <Card.Footer className="flex flex-wrap items-center justify-between gap-2">
         <span className="text-lg font-semibold text-foreground">
           {formatPrice(product.price)}
         </span>
-        <Link href={`/productos/${product.slug}`}>
-          <Button size="sm" variant="primary">
-            Ver detalle
-          </Button>
-        </Link>
+        <div className="flex flex-wrap items-center gap-2">
+          <ProductCardActions
+            product={{
+              slug: product.slug,
+              name: product.name,
+              price: product.price,
+              imageUrl: product.imageUrl,
+            }}
+          />
+          <Link href={`/productos/${product.slug}`}>
+            <Button size="sm" variant="primary">
+              Ver detalle
+            </Button>
+          </Link>
+        </div>
       </Card.Footer>
     </Card>
   );

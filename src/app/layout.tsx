@@ -1,5 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
+import { auth } from "@/auth";
 import { Providers } from "./providers";
 import { Navbar } from "@/components/Navbar";
 import { ThemeScript } from "@/components/ThemeScript";
@@ -24,11 +25,13 @@ export const metadata: Metadata = {
     "Catálogo de productos deportivos: fútbol, running, fitness, natación y más.",
 };
 
-export default function RootLayout({
+export default async function RootLayout({
   children,
 }: Readonly<{
   children: React.ReactNode;
 }>) {
+  const session = await auth();
+
   return (
     <html
       lang="es"
@@ -39,7 +42,7 @@ export default function RootLayout({
         <ThemeScript />
       </head>
       <body className="flex min-h-full flex-col bg-background text-foreground">
-        <Providers>
+        <Providers session={session}>
           <Navbar />
           <main className="flex-1">{children}</main>
         </Providers>

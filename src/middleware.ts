@@ -7,17 +7,17 @@ export default auth((req) => {
   const isLoggedIn = Boolean(req.auth);
   const { pathname } = req.nextUrl;
 
-  const isPublicRoute =
+  const isAuthRoute =
     pathname.startsWith("/login") || pathname.startsWith("/api/auth");
 
-  if (isPublicRoute) {
+  if (isAuthRoute) {
     if (isLoggedIn && pathname.startsWith("/login")) {
       return Response.redirect(new URL("/", req.nextUrl));
     }
     return;
   }
 
-  if (!isLoggedIn) {
+  if (pathname.startsWith("/carrito") && !isLoggedIn) {
     const loginUrl = new URL("/login", req.nextUrl);
     loginUrl.searchParams.set("callbackUrl", pathname);
     return Response.redirect(loginUrl);

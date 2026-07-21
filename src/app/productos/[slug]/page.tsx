@@ -8,6 +8,7 @@ import {
   Separator,
 } from "@heroui/react";
 import { ProductImage } from "@/components/ProductImage";
+import { ProductActions } from "@/components/ProductActions";
 import { prisma } from "@/lib/prisma";
 import { formatPrice } from "@/lib/format";
 
@@ -116,6 +117,15 @@ export default async function ProductPage({ params }: ProductPageProps) {
               </div>
             )}
           </div>
+
+          <ProductActions
+            product={{
+              slug: product.slug,
+              name: product.name,
+              price: product.price,
+              imageUrl: product.imageUrl,
+            }}
+          />
 
           <Link href="/">
             <Button variant="secondary">← Volver al catálogo</Button>

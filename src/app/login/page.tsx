@@ -20,8 +20,8 @@ export default async function LoginPage({ searchParams }: LoginPageProps) {
         <Card.Header className="flex flex-col items-start gap-2">
           <Card.Title className="text-2xl">SportCatalog</Card.Title>
           <Card.Description>
-            Iniciá sesión con Google para acceder al catálogo y a la API
-            protegida.
+            Iniciá sesión con Google para agregar productos al carrito y
+            completar tu compra.
           </Card.Description>
         </Card.Header>
         <Card.Content className="flex flex-col gap-4">
