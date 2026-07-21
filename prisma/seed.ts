@@ -24,7 +24,7 @@ const products = [
     price: 45999,
     // Google: "pelota de futbol nike strike"
     imageUrl: googleImg(
-      "https://www.sportcomweb.com/web/image/product.template/15019/image_1920?unique=a05fe4e",
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcRNB2-8zIwFiO0gmoF9a6gqYz9eMQadL-skg5zWTmu6cDaFa0k1zgw4rAwwHjDWzU-R5YJUYwPDqMFNT7U2zoes7IXE0dPqWb49dczYkjyHuw2UPIJQOG3c",
     ),
     brand: "Nike",
     sport: "Fútbol",
@@ -54,7 +54,7 @@ const products = [
     price: 12999,
     // Google: "canilleras futbol puma"
     imageUrl: googleImg(
-      "https://contents.mediadecathlon.com/b6523392-b6523392.jpg?format=auto&quality=40",
+      "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcTi4pKih1J9kjDetHOp8bx1oMcAhjTXS6h-RAofQ4Tc-TplmG8lNECBiu5IlB8AbSXEO0ZtbkmjMZ_unOpTnjInYZ0dc6W-Hlw4hc953UPvC7kYEaNyCdDp",
     ),
     brand: "Puma",
     sport: "Fútbol",
@@ -69,7 +69,7 @@ const products = [
     price: 54999,
     // Google: "guantes arquero reusch"
     imageUrl: googleImg(
-      "https://contents.mediadecathlon.com/g1041230/g1041230.jpg?format=auto&quality=40",
+      "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcRdNCatPs6f9K3AYrfv94etbLJA4O-Orr36vlqOfvANJ8ncEnYFQOmhs_ZJp8NCUm9NLbOXqmkkfJt1zP3H7XkOd4sDGzF1CaP6q0ERsGEKMGF1m1_pneiQ",
     ),
     brand: "Reusch",
     sport: "Fútbol",
@@ -84,7 +84,7 @@ const products = [
     price: 219999,
     // Google: "zapatillas nike pegasus 41 running"
     imageUrl: googleImg(
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7c5678f4-c28d-4862-a8b4-2705167967a4/air-pegasus-41-mens-road-running-shoes-Njq3wA.png",
+      "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcQU_kR9PP1gHdG1xT0yF-NNc8_MHSDYFVdRrrqnjr6NipbYpWb-LZyXsW3ExoKzMeF8NQv0VXBH6RLLen9TG7-ZyMit-RCVLeM2CRjz05GvKf3WFMfGM_7uOA",
     ),
     brand: "Nike",
     sport: "Running",
@@ -99,7 +99,7 @@ const products = [
     price: 34999,
     // Google: "remera running dry fit nike"
     imageUrl: googleImg(
-      "https://contents.mediadecathlon.com/p2598260/p2598260.jpg?format=auto&quality=40",
+      "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRZNipyEioqi1rYBCeU6S0sMQa7omA4Bav8Y5ZVfrSFYneREneiwVgX2n0_ZSCi0Ay7E-a9G-qalAoSYVcnIWttk2kdYEryCn4TtyEELd1pD4c02f8girQC7Q",
     ),
     brand: "Nike",
     sport: "Running",
@@ -129,7 +129,7 @@ const products = [
     price: 89999,
     // Google: "mancuernas ajustables 10 kg"
     imageUrl: googleImg(
-      "https://contents.mediadecathlon.com/g152327/g152327.jpg?format=auto&quality=40",
+      "https://encrypted-tbn3.gstatic.com/shopping?q=tbn:ANd9GcR5xISXzcyPYE7kVoUplpUkNS0xaQTUjrEDIZL1lke1mO1jhecuHwajVu75gb3thCdRh6QOTfa9a4iHfL3ZVBMTcBvJox6wgYtVaew4RNMfV4uqEJgqYBgltA",
     ),
     brand: "SportFit",
     sport: "Fitness",
@@ -144,7 +144,7 @@ const products = [
     price: 24999,
     // Google: "colchoneta yoga premium"
     imageUrl: googleImg(
-      "https://contents.mediadecathlon.com/p2199007/p2199007.jpg?format=auto&quality=40",
+      "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSRwSXzQOVacNPAghkaLXXNcL7bfJAeDPj_ZefUF8k0DkVJeF70R8dsfenLeOg63MwAmpO6AbWYD3aQ6hP02DIXqk8Yi4KVjkwGmO5RmdUkf9jtp0JRdzQqZQ",
     ),
     brand: "YogaPro",
     sport: "Fitness",
@@ -159,7 +159,7 @@ const products = [
     price: 15999,
     // Google: "bandas elasticas resistencia fitness"
     imageUrl: googleImg(
-      "https://contents.mediadecathlon.com/p1712305/p1712305.jpg?format=auto&quality=40",
+      "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcSa12L5Dg9m9DY89A9KwKjK8Uq81i_q-cxpiwaw6tZPA01741SWJM6d7MTtAfJoPVNR1blgFnj-8fwzm9xSMnpb4PWJhDmnVNI-yR3gxRzg9gRkiDHDtlRjIA",
     ),
     brand: "TheraBand",
     sport: "Fitness",
@@ -174,7 +174,7 @@ const products = [
     price: 19999,
     // Google: "musculosa training gym"
     imageUrl: googleImg(
-      "https://acdn-us.mitiendanube.com/stores/001/219/670/products/18837-8bb286fc383c18e2b817574320180315-480-0.webp",
+      "https://http2.mlstatic.com/D_NQ_NP_2X_993526-MLA105014505632_012026-F.webp",
     ),
     brand: "Under Armour",
     sport: "Fitness",
@@ -189,7 +189,7 @@ const products = [
     price: 32999,
     // Google: "antiparras natacion speedo"
     imageUrl: googleImg(
-      "https://contents.mediadecathlon.com/p817234/p817234.jpg?format=auto&quality=40",
+      "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcTPj9xAGDNsaoQ0kTx4dS-0RCiAsGF9vR-iUi_m8b84peAaz5Uih4Q_-pErYjQhmEmLFt9mwpqWuYkjSR31uJPz7bYJo40faZRK_YN281t_N8dl-CqkLjQ22zI",
     ),
     brand: "Speedo",
     sport: "Natación",
@@ -204,7 +204,7 @@ const products = [
     price: 8999,
     // Google: "gorro natacion silicona"
     imageUrl: googleImg(
-      "https://contents.mediadecathlon.com/p817235/p817235.jpg?format=auto&quality=40",
+      "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcR2Ir0bs217XQNBO20W7hfEF_puB_XQ6V5DpghWyGLWq-w4v1_a0I5uBYtc-x0E0mDswYkkXhjqe45UmdNE09N0b3LWjYqHFVepCU84n2L81C-R5KWtY8jB",
     ),
     brand: "Arena",
     sport: "Natación",
@@ -219,7 +219,7 @@ const products = [
     price: 42999,
     // Google: "traje baño competicion natacion"
     imageUrl: googleImg(
-      "https://contents.mediadecathlon.com/p817236/p817236.jpg?format=auto&quality=40",
+      "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRTeDVGSWjDaTNGYGskp6TgpwoJw4Ke8RFk3453qKIcGQihKE9GMmLnRXSOff1KyVnWrOqLmd9wJHUOTq9w2jee3lOFdO6G_6tT4Y9SBN3j4KkYzHI9nzUQcw",
     ),
     brand: "TYR",
     sport: "Natación",
@@ -234,7 +234,7 @@ const products = [
     price: 67999,
     // Google: "pelota basquet spalding"
     imageUrl: googleImg(
-      "https://acdn-us.mitiendanube.com/stores/001/219/670/products/lbpvdl002rw-5-pelota-de-basquet-estadios-24-river-_-licencia-clubes-n5-994369b4702830a8a017564779809585-480-0.webp",
+      "https://encrypted-tbn0.gstatic.com/shopping?q=tbn:ANd9GcRW7w6dl0KOQc-X1UPu0z_HvLsWASvSuIbHkoktk31VabWY7wubFEqmvQDYD2XbqK0GNox-BVr_r-kHZEU-GqoIzl3xcZLTIXq4tPVBSHaQyv0lwEgZJrRQ7A",
     ),
     brand: "Spalding",
     sport: "Básquet",
@@ -249,7 +249,7 @@ const products = [
     price: 249999,
     // Google: "zapatillas jordan basquet"
     imageUrl: googleImg(
-      "https://static.nike.com/a/images/t_PDP_1728_v1/f_auto,q_auto:eco/7f716966-4c89-428e-b17b-09289997a477/air-jordan-1-mid-mens-shoes-LCVQCT.png",
+      "https://encrypted-tbn2.gstatic.com/shopping?q=tbn:ANd9GcS8AKIaw6Z1A40C6qqGE2-W7ZLR5N6Gtq68UgrsPUrJgtS5u9FUefzEUhR0KaJjOmkV7V-BHz7M7mVWsJ9761BIV0OYn7J7FwgWrx-ameYsdfmD8lD6p636",
     ),
     brand: "Jordan",
     sport: "Básquet",
@@ -264,7 +264,7 @@ const products = [
     price: 299999,
     // Google: "raqueta tenis wilson pro staff"
     imageUrl: googleImg(
-      "https://www.wilson.com/content/dam/wilson/en-us/tennis/racquets/pro-staff/pro-staff-97/pro-staff-97-v14-tennis-racket.png",
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcT2iVBasFDmXtkCH-fSbj4ky8NugP1gx_UWUu_JrTbT4Ibv6fM6UMSRqJ-9ExFtgVxC-ZBdcNsD9kXpXd_STJf1RE3nxnyNf4RT1NAu5uBCnHZ61YgkJHSIpw",
     ),
     brand: "Wilson",
     sport: "Tenis",
@@ -279,7 +279,7 @@ const products = [
     price: 14999,
     // Google: "pelotas tenis wilson tubo"
     imageUrl: googleImg(
-      "https://www.wilson.com/content/dam/wilson/en-us/tennis/balls/us-open/us-open-tennis-balls-3-can.png",
+      "https://encrypted-tbn1.gstatic.com/shopping?q=tbn:ANd9GcT8i7VUOIQz3u72N_fig7dERJX7o8z9k5_jIXUzpjMnkjvNoN0Z_ZvrH5Fn7iQe_9HNlqdUKL35hQlD8bcOOLew5e_lBKtwRvchEACl3PGwXLW9GlVh6Xex",
     ),
     brand: "Wilson",
     sport: "Tenis",

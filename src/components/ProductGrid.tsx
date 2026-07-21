@@ -3,11 +3,11 @@ import { ProductCard, type ProductWithCategory } from "./ProductCard";
 export function ProductGrid({ products }: { products: ProductWithCategory[] }) {
   if (products.length === 0) {
     return (
-      <div className="rounded-xl border border-dashed border-slate-300 bg-white px-6 py-16 text-center">
-        <p className="text-lg font-medium text-slate-700">
+      <div className="rounded-xl border border-dashed border-border bg-surface px-6 py-16 text-center">
+        <p className="text-lg font-medium text-foreground">
           No hay productos en esta categoría
         </p>
-        <p className="mt-2 text-sm text-slate-500">
+        <p className="mt-2 text-sm text-muted">
           Probá seleccionando otra categoría en el filtro.
         </p>
       </div>

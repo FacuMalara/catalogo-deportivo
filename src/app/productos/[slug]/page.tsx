@@ -61,7 +61,7 @@ export default async function ProductPage({ params }: ProductPageProps) {
       </Breadcrumbs>
 
       <div className="grid gap-10 lg:grid-cols-2">
-        <div className="relative aspect-square overflow-hidden rounded-2xl bg-slate-100">
+        <div className="relative aspect-square overflow-hidden rounded-2xl bg-border/50">
           <ProductImage
             src={product.imageUrl}
             alt={product.name}
@@ -81,38 +81,38 @@ export default async function ProductPage({ params }: ProductPageProps) {
                 </Chip>
               )}
             </div>
-            <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+            <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
               {product.name}
             </h1>
             {product.brand && (
-              <p className="mt-2 text-lg text-slate-500">{product.brand}</p>
+              <p className="mt-2 text-lg text-muted">{product.brand}</p>
             )}
           </div>
 
-          <p className="text-3xl font-bold text-emerald-600">
+          <p className="text-3xl font-bold text-emerald-600 dark:text-emerald-400">
             {formatPrice(product.price)}
           </p>
 
           <Separator />
 
           <div>
-            <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-slate-500">
+            <h2 className="mb-2 text-sm font-semibold uppercase tracking-wide text-muted">
               Descripción
             </h2>
-            <p className="leading-relaxed text-slate-700">
+            <p className="leading-relaxed text-foreground/90">
               {product.description}
             </p>
           </div>
 
           <div className="grid grid-cols-2 gap-4 text-sm">
             <div>
-              <span className="font-medium text-slate-500">Deporte</span>
-              <p className="text-slate-900">{product.sport}</p>
+              <span className="font-medium text-muted">Deporte</span>
+              <p className="text-foreground">{product.sport}</p>
             </div>
             {product.brand && (
               <div>
-                <span className="font-medium text-slate-500">Marca</span>
-                <p className="text-slate-900">{product.brand}</p>
+                <span className="font-medium text-muted">Marca</span>
+                <p className="text-foreground">{product.brand}</p>
               </div>
             )}
           </div>

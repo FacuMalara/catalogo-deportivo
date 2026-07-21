@@ -8,8 +8,8 @@ export type ProductWithCategory = Product & { category: Category };
 
 export function ProductCard({ product }: { product: ProductWithCategory }) {
   return (
-    <Card className="overflow-hidden transition-shadow hover:shadow-md">
-      <div className="relative aspect-square bg-slate-100">
+    <Card className="overflow-hidden border border-border bg-surface transition-shadow hover:shadow-md">
+      <div className="relative aspect-square bg-border/50">
         <ProductImage src={product.imageUrl} alt={product.name} />
         {product.featured && (
           <span className="absolute left-3 top-3 rounded-full bg-emerald-600 px-2 py-0.5 text-xs font-medium text-white">
@@ -29,7 +29,7 @@ export function ProductCard({ product }: { product: ProductWithCategory }) {
         </Chip>
       </Card.Content>
       <Card.Footer className="flex items-center justify-between gap-2">
-        <span className="text-lg font-semibold text-slate-900">
+        <span className="text-lg font-semibold text-foreground">
           {formatPrice(product.price)}
         </span>
         <Link href={`/productos/${product.slug}`}>

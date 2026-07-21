@@ -37,17 +37,17 @@ export default async function Home({ searchParams }: HomeProps) {
   return (
     <div className="mx-auto max-w-7xl px-4 py-8 sm:px-6 lg:px-8">
       <section className="mb-10">
-        <h1 className="text-3xl font-bold tracking-tight text-slate-900 sm:text-4xl">
+        <h1 className="text-3xl font-bold tracking-tight text-foreground sm:text-4xl">
           Catálogo deportivo
         </h1>
-        <p className="mt-2 max-w-2xl text-slate-600">
+        <p className="mt-2 max-w-2xl text-muted">
           Encontrá equipamiento para fútbol, running, fitness, natación, básquet
           y tenis.
         </p>
       </section>
 
       <section className="mb-8 flex flex-col gap-4 sm:flex-row sm:items-center sm:justify-between">
-        <Suspense fallback={<div className="h-10 w-48 animate-pulse rounded-lg bg-slate-200" />}>
+        <Suspense fallback={<div className="h-10 w-48 animate-pulse rounded-lg bg-border" />}>
           <CatalogFilters categories={categories} />
         </Suspense>
         {activeCategory && (
@@ -59,7 +59,7 @@ export default async function Home({ searchParams }: HomeProps) {
 
       {!categoria && featuredProducts.length > 0 && (
         <section className="mb-12">
-          <h2 className="mb-4 text-xl font-semibold text-slate-900">
+          <h2 className="mb-4 text-xl font-semibold text-foreground">
             Destacados
           </h2>
           <div className="grid grid-cols-1 gap-6 sm:grid-cols-2 lg:grid-cols-4">
@@ -71,7 +71,7 @@ export default async function Home({ searchParams }: HomeProps) {
       )}
 
       <section>
-        <h2 className="mb-4 text-xl font-semibold text-slate-900">
+        <h2 className="mb-4 text-xl font-semibold text-foreground">
           {activeCategory
             ? `Productos de ${activeCategory.name}`
             : "Todos los productos"}
